@@ -7,11 +7,11 @@ import { MdLocationOn, MdOutlineFileDownload } from "react-icons/md";
 
 const MyInfo = () => {
   return (
-    <div className=" bg-primaryColor rounded-xl flex flex-col items-center gap-8  px-10 py-12">
-      <div className=" w-44 h-44 rounded-xl group overflow-hidden ">
+    <div className="relative border bg-primaryColor rounded-xl min-w-96 flex flex-col items-center gap-8  px-10 py-12">
+      <div className=" w-44 h-44 rounded-xl group overflow-hidden  -mt-36">
         <img
           src="/src/assets/ayo-ogunseinde-sibVwORYqs0-unsplash.jpg"
-          className=" w-full h-full group-hover:scale-150 transition-all duration-500 ease-in-out "
+          className=" w-full h-full group-hover:scale-110 transition-all duration-500 ease-in-out "
         />
       </div>
       {/* my details */}
@@ -45,7 +45,7 @@ const MyInfo = () => {
           </div>
           <div>
             <span className=" font-thin text-sm ">Phone</span>
-            <h3 className=" text-textColor  text-lg font-semibold">
+            <h3 className=" text-textColor  text-lg font-normal">
               +233 24 123 4567
             </h3>
           </div>
@@ -56,7 +56,7 @@ const MyInfo = () => {
           </div>
           <div>
             <span className=" font-thin text-sm ">Email</span>
-            <h3 className=" text-textColor  text-lg font-semibold">
+            <h3 className=" text-textColor  text-lg font-normal">
               pbessilfie001@gmail.com
             </h3>
           </div>
@@ -67,7 +67,7 @@ const MyInfo = () => {
           </div>
           <div>
             <span className=" font-thin text-sm ">Location</span>
-            <h3 className=" text-textColor  text-lg font-semibold">
+            <h3 className=" text-textColor  text-lg font-normal">
               Kwabenya Ghana
             </h3>
           </div>
@@ -78,7 +78,7 @@ const MyInfo = () => {
           </div>
           <div>
             <span className=" font-thin text-sm ">Birthday</span>
-            <h3 className=" text-textColor  text-lg font-semibold">
+            <h3 className=" text-textColor  text-lg font-normal">
               January 23, 2003
             </h3>
           </div>
