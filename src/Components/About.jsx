@@ -5,7 +5,7 @@ import { MdOutlineDeveloperMode, MdOutlineWeb } from "react-icons/md";
 const About = () => {
   return (
     <div className="w-[700px]">
-      <div className=" bg-primaryColor rounded-t-xl p-8 ">
+      <div className=" bg-primaryColor rounded-t-xl p-10 ">
         <div className="flex items-center gap-4 mb-7">
           <h1 className=" text-textColor text-2xl font-bold">About</h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
@@ -25,7 +25,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="p-5 mb-2">
+        <div className=" mb-2">
           <h2 className=" font-bold text-base mb-7">What I Do!</h2>
           <div className="grid grid-cols-2 gap-5">
             <div className="flex gap-4 bg-secondaryColor2 p-6 rounded-lg ">
@@ -79,7 +79,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <footer className=" bg-secondaryColor p-4 rounded-b-xl">
+      <footer className=" bg-secondaryColor p-10 rounded-b-xl">
         <h3 className="font-bold text-lg text-center mb-5">Clients</h3>
         <div className="flex items-center justify-evenly mb-10">
           <img
