@@ -7,6 +7,8 @@ export default {
         primaryColor: "#FFFFFF",
         secondaryColor: "#EFF5F9",
         secondaryColor2: "#FFF5F4",
+        secondaryColor3: "#E4ECEA",
+        secondaryColor4: "#EFF4FB",
         textColor: "#000000",
       },
       fontFamily: {
