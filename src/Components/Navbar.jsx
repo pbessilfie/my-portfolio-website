@@ -4,8 +4,10 @@ import { FaRegFileAlt, FaRegFileCode } from "react-icons/fa";
 import { LiaBlogSolid } from "react-icons/lia";
 import { LuContact } from "react-icons/lu";
 import { PNL } from "../constants";
+import { useState } from "react";
 
 const Navbar = ({ setselectedLink }) => {
+  const [activeLink, setActiveLink] = useState("About");
   const PLIcon = (link) => {
     let sl = link.name;
     if (sl) {
@@ -30,8 +32,15 @@ const Navbar = ({ setselectedLink }) => {
       {PNL.map((link) => (
         <li
           key={link.name}
-          className=" bg-[#1B74E4 bg-secondaryColor text-textColor rounded-lg p-2 text-sm text-center hover:bg-[#1B74E4] hover:text-secondaryColor transition-all duration-400 ease-in-out cursor-pointer "
-          onClick={() => setselectedLink(link.name)}
+          className={` rounded-lg p-2 text-sm text-center hover:bg-[#1B74E4] hover:text-secondaryColor transition-all duration-400 ease-in-out cursor-pointer ${
+            activeLink === link.name
+              ? "bg-[#1B74E4] text-secondaryColor"
+              : "bg-secondaryColor text-textColor"
+          }`}
+          onClick={() => {
+            setActiveLink(link.name);
+            setselectedLink(link.name);
+          }}
         >
           {PLIcon(link)} <span>{link.name}</span>
         </li>
