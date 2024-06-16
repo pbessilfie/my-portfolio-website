@@ -33,10 +33,10 @@ function App() {
       {/* <div className="absolute top-0 left-0 w-full h-full -z-50">
         <img src="/public/image.png" className=" h-full w-full" />
       </div> */}
-      <div className="fixed left-60 top-44">
+      <div className="fixed left-80 top-44">
         <MyInfo />
       </div>
-      <div className="flex gap-20">
+      <div className="flex gap-8">
         <div className="min-w-96"></div>
         {SelectedPortDetails(selectedLink)}
         <div>
