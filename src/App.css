@@ -1,1 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+
+.work-nav-links::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #1b74e4;
+  border-radius: 50px;
+}
+.work-nav-links:hover::after {
+  width: 80%;
+    margin-top: 5px;
+
+  transition: all;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
