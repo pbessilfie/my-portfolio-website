@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 import About from "./Components/About";
 import Blogs from "./Components/Blogs";
 import Contact from "./Components/Contact";
