@@ -11,6 +11,7 @@ const Contact = () => {
   const getName = (e) => setName(e.target.value);
   const getEmail = (e) => setEmail(e.target.value);
   const getMessage = (e) => setMessage(e.target.value);
+  
   return (
     <div className="w-[700px]">
       <div className=" bg-primaryColor rounded-t-xl p-8 ">
@@ -31,7 +32,9 @@ const Contact = () => {
             <div className="relative w-full h-5 mb-10 ">
               <label
                 className={`absolute  text-sm font-normal transition-all duration-500 ease-in-out ${
-                  isNameFocused || name ? "-top-4 left-1 scale-75 text-[#1B74E4]" : "top-0 left-3 text-[#303132]"
+                  isNameFocused || name
+                    ? "-top-4 left-1 scale-75 text-[#1B74E4]"
+                    : "top-0 left-3 text-[#303132]"
                 }`}
               >
                 Name
@@ -48,7 +51,9 @@ const Contact = () => {
             <div className="relative w-full  h-5 mb-10 ">
               <label
                 className={`absolute  text-sm font-normal transition-all duration-500 ease-in-out ${
-                  isEmailFocused || email ? "-top-4 left-1 scale-75 text-[#1B74E4]" : "top-0 left-3 text-[#303132]"
+                  isEmailFocused || email
+                    ? "-top-4 left-1 scale-75 text-[#1B74E4]"
+                    : "top-0 left-3 text-[#303132]"
                 }`}
               >
                 Email
@@ -76,10 +81,12 @@ const Contact = () => {
                 type="text"
                 value={message}
                 onChange={getMessage}
+                rows={5}
+                cols={10}
                 className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-none bg-transparent p-3 text-[#303132] text-sm"
                 onFocus={() => setIsMessageFocused(true)}
                 onBlur={() => setIsMessageFocused(false)}
-              />
+              ></textarea>
             </div>
             <button className=" border border-textColor rounded-xl text-sm px-8 py-2 hover:bg-[#1B74E4] hover:text-secondaryColor transition-all duration-500 ease-in-out">
               Submit
