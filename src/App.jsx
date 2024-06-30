@@ -30,17 +30,18 @@ function App() {
     return selectedLink;
   };
   return (
-    <main className="relative p-44 font-roboto-slab flex items-center justify-center gap-10  bg-orange-900 min-h-screen">
+    <main className="relative p-44 font-roboto-slab flex items-start justify-center gap-10  bg-orange-900 min-h-screen">
       {/* <div className="absolute top-0 left-0 w-full h-full -z-50">
         <img src="/public/image.png" className=" h-full w-full" />
       </div> */}
       <div className="fixed left-80 top-44">
         <MyInfo />
       </div>
-      <div className="flex gap-8">
+      <div className="flex gap-8 ">
         <div className="min-w-96"></div>
         {SelectedPortDetails(selectedLink)}
-        <div>
+        <div className=" w-24"></div>
+        <div className="fixed right-80 top-48">
           <Navbar setselectedLink={setselectedLink} />
         </div>
       </div>
