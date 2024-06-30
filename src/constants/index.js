@@ -8,22 +8,22 @@ export const PNL = [
 
 export const projects = [
   {
-    thumbnail: "",
+    thumbnail: "/src/assets/movie website.png",
     category: "Web App",
     projectTitle: " CineSpectre movie web app",
   },
   {
-    thumbnail: "",
+    thumbnail: "/src/assets/blog.png",
     category: "Web App",
     projectTitle: " Bitblog hub - A blog website",
   },
   {
-    thumbnail: "",
+    thumbnail: "/src/assets/nike.png",
     category: "Web App",
     projectTitle: " Nike Landing page clone",
   },
   {
-    thumbnail: "",
+    thumbnail: "/src/assets/restaurant (2).png",
     category: "Web App",
     projectTitle: " Restaurant website",
   },
