@@ -10,8 +10,7 @@
 }
 .work-nav-links:hover::after {
   width: 80%;
-    margin-top: 5px;
-
+  margin-top: 4px;
   transition: all;
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

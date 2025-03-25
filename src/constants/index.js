@@ -1,9 +1,8 @@
 export const PNL = [
-  { name: "About" },
-  { name: "Resume" },
-  { name: "Works" },
-  { name: "Blogs" },
-  { name: "Contact" },
+  { name: "About",path:"/" },
+  { name: "Resume",path:"/resume" },
+  { name: "Works",path:"/works" },
+  { name: "Contact",path:"/contact" },
 ];
 
 export const projects = [

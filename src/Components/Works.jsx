@@ -4,8 +4,8 @@ import { projects } from "../constants";
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 const Works = () => {
-  // const navigate = useNavigate();
-  const [sltdProjLk, setSltdProjLk] = useState("All");
+  const [activeLink, setActiveLink] = useState("All");
+  const workNav = ['All', 'Web Development','UI/UX Designs']
 
   // const projectNavigation = (title) => {
   //   switch (title) {
@@ -60,9 +60,9 @@ const Works = () => {
   const indeces = getIndex(projects);
 
   const sltdProjDetails = () => {
-    if (sltdProjLk) {
-      switch (sltdProjLk) {
-        case "Web Apps":
+    if (activeLink) {
+      switch (activeLink) {
+        case "Web Development":
           return projects
             .filter((project) => project.category === "Web App")
             .map((project, index) => (
@@ -90,7 +90,7 @@ const Works = () => {
                 </p>
               </div>
             ));
-        case "Web Designs":
+        case "Web Design":
           return projects
             .filter((project) => project.category === "Web Design")
             .map((project, index) => (
@@ -152,30 +152,29 @@ const Works = () => {
     <div className="w-[700px]">
       <div className=" bg-primaryColor rounded-t-xl p-8 ">
         <div className="flex items-center gap-4 mb-7">
-          <h1 className=" text-textColor text-2xl font-bold">Resume</h1>
+          <h1 className=" text-textColor text-2xl font-bold">Works</h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
         </div>
 
         <div className=" my-6">
           <ul className="flex items-center gap-3 justify-end ">
-            <li
-              className="relative work-nav-links text-sm text-[#A6A6A6] font-bold hover:text-textColor hover:-translate-y-1  cursor-pointer transition-all duration-500 ease-in-out"
-              onClick={() => setSltdProjLk("All")}
-            >
-              All
-            </li>
-            <li
-              className="relative work-nav-links text-sm text-[#A6A6A6] font-bold hover:text-textColor hover:-translate-y-1  cursor-pointer transition-all duration-500 ease-in-out"
-              onClick={() => setSltdProjLk("Web Apps")}
-            >
-              Web Apps
-            </li>
-            <li
-              className="relative work-nav-links text-sm text-[#A6A6A6] font-bold hover:text-textColor hover:-translate-y-1  cursor-pointer transition-all duration-500 ease-in-out"
-              onClick={() => setSltdProjLk("Web Designs")}
-            >
-              Web Designs
-            </li>
+            {workNav.map((link, index) => (
+              <li
+                key={index}
+                className={`relative work-nav-links text-sm text-[#A6A6A6] font-semibold hover:text-textColor hover:-translate-y-1  cursor-pointer transition-all duration-500 ease-in-out ${
+                  activeLink === link
+                    ? "-translate-y-1 text-textColor after:w-10/12 after:h-[20x] after:rounded-full after:bg-[#1b74e4] after:mt-1"
+                    : " translate-y-0"
+                }`}
+                onClick={() => {
+                  setActiveLink(link);
+                }}
+              >
+                {link}
+               
+              </li>
+            ))}
+           
           </ul>
         </div>
 

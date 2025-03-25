@@ -1,48 +1,59 @@
-import PropTypes from "prop-types";
 import { CiUser } from "react-icons/ci";
 import { FaRegFileAlt, FaRegFileCode } from "react-icons/fa";
-import { LiaBlogSolid } from "react-icons/lia";
 import { LuContact } from "react-icons/lu";
 import { PNL } from "../constants";
+import { NavLink } from "react-router";
+import { FaMoon, FaSun } from "react-icons/fa6";
 import { useState } from "react";
 
-const Navbar = ({ setselectedLink }) => {
-  const [activeLink, setActiveLink] = useState("About");
+
+const Navbar = () => {
+    const [darkTheme, setDarkTheme] = useState(false);
+
   const PLIcon = (link) => {
     let sl = link.name;
     if (sl) {
       switch (sl) {
         case "Resume":
-          return <FaRegFileAlt className="mx-auto mb-2 text-2xl" />;
+          return <FaRegFileAlt  />;
         case "Works":
-          return <FaRegFileCode className="mx-auto mb-2 text-2xl" />;
-        case "Blogs":
-          return <LiaBlogSolid className="mx-auto mb-2 text-2xl" />;
+          return <FaRegFileCode  />;
+
         case "Contact":
-          return <LuContact className="mx-auto mb-2 text-2xl" />;
+          return <LuContact  />;
 
         default:
-          return <CiUser className="mx-auto mb-2 text-2xl" />;
+          return <CiUser  />;
       }
     }
     return sl;
   };
+
   return (
-    <ul className=" bg-primaryColor flex gap-4 flex-col p-5 rounded-xl ">
+    <ul className="sticky top-0 bg-primaryColor flex gap-4 flex-col p-5 rounded-xl w-fit">
+      <button
+        className="mx-auto w-fit rounded-full text-2xl p-5 bg-[rgba(255,255,255,0.5)] absolute -top-20"
+        onClick={() => setDarkTheme(!darkTheme)}
+      >
+        {!darkTheme ? <FaMoon /> : <FaSun />}
+      </button>
       {PNL.map((link) => (
         <li
           key={link.name}
-          className={` rounded-lg p-2 text-sm text-center hover:bg-[#1B74E4] hover:text-secondaryColor transition-all duration-400 ease-in-out cursor-pointer ${
-            activeLink === link.name
-              ? "bg-[#1B74E4] text-secondaryColor"
-              : "bg-secondaryColor text-textColor"
-          }`}
-          onClick={() => {
-            setActiveLink(link.name);
-            setselectedLink(link.name);
-          }}
+          className="transition-all duration-400 ease-in-out cursor-pointer
+"
         >
-          {PLIcon(link)} <span>{link.name}</span>
+          <NavLink
+            to={link.path}
+            className={({ isActive }) =>
+              isActive
+                ? "bg-[#1B74E4] text-secondaryColor p-2 flex flex-col items-center rounded-lg text-sm text-center hover:bg-[#1B74E4] hover:text-secondaryColor  "
+                : "bg-secondaryColor text-textColor p-2 flex flex-col items-center rounded-lg text-sm text-center hover:bg-[#1B74E4] hover:text-secondaryColor  "
+            }
+          >
+            <div className="text-2xl mb-2">{PLIcon(link)}</div>{" "}
+            <span>{link.name}</span>
+          </NavLink>
         </li>
       ))}
     </ul>
@@ -50,6 +61,4 @@ const Navbar = ({ setselectedLink }) => {
 };
 
 export default Navbar;
-Navbar.propTypes = {
-  setselectedLink: PropTypes.func,
-};
+
