@@ -37,9 +37,9 @@ export const projects = [
     projectTitle: "Portfolio website",
   },
   {
-    thumbnail: "",
+    thumbnail: "/src/assets/MovieWebsiteUI.png",
     category: "Web Design",
-    projectTitle: " CineSpectre movie web app",
+    projectTitle: " Honey Movies",
   },
   {
     thumbnail: "",
