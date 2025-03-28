@@ -13,7 +13,7 @@ const Contact = () => {
   const getMessage = (e) => setMessage(e.target.value);
   
   return (
-    <div className="w-[700px]">
+    <div className="w-full">
       <div className=" bg-primaryColor rounded-t-xl p-8 ">
         <div className="flex items-center gap-4 mb-7">
           <h1 className=" text-textColor text-2xl font-bold">Contact</h1>

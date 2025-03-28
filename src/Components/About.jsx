@@ -29,7 +29,7 @@ const About = () => {
   ];
   const getYear = new Date().getFullYear();
   return (
-    <div className="w-[700px]">
+    <div className="w-full">
       <div className=" bg-primaryColor rounded-t-xl p-10 ">
         <div className="flex items-center gap-4 mb-7">
           <h1 className=" text-textColor text-2xl font-bold">About</h1>

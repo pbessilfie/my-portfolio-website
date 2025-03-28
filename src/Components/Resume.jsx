@@ -3,12 +3,44 @@ import { FaGraduationCap } from "react-icons/fa6";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { workingSkills } from "../constants/workingSkills";
 import { Knowledge } from "../constants/knowledge";
-import { educationData } from "../constants/educationData";
+import { useState } from "react";
+import Education from "./Education";
+import Experience from "./Experience";
 
 const Resume = () => {
-
+  const [activeLink, setactiveLink] = useState("Education");
+  const resumeNavItems = [
+    {
+      name: "Education",
+      icon: (
+        <FaGraduationCap
+          className="text-2xl text-[#EA6985]"
+          style={{
+            filter:
+              activeLink === "Education"
+                ? "brightness(100%)"
+                : "brightness(170%)",
+          }}
+        />
+      ),
+    },
+    {
+      name: "Experience",
+      icon: (
+        <IoBagHandleOutline
+          className="text-2xl text-[#EA6985]"
+          style={{
+            filter:
+              activeLink === "Experience"
+                ? "brightness(100%)"
+                : "brightness(170%)",
+          }}
+        />
+      ),
+    },
+  ];
   return (
-    <div className="w-[700px]">
+    <div className="w-full">
       <div className=" bg-primaryColor rounded-t-xl p-8 ">
         <div className="flex items-center gap-4 mb-7">
           <h1 className=" text-textColor text-2xl font-bold">Resume</h1>
@@ -17,32 +49,26 @@ const Resume = () => {
 
         <div>
           <div className=" grid grid-cols-2 mb-6">
-            <div className="flex items-center gap-3">
-              <FaGraduationCap className="text-2xl text-[#EA6985]" />
-              <h3 className="font-base text-textColor font-bold">Education</h3>
-            </div>
-            <div className="flex items-center gap-3">
-              <IoBagHandleOutline className="text-2xl text-[#EA6985]" />
-              <h3 className="font-base text-textColor font-bold">Experience</h3>
-            </div>
-          </div>
-
-          <ul className="grid grid-cols-2 gap-4">
-            {educationData.map((education, index) => (
+            {resumeNavItems.map((item, index) => (
               <div
                 key={index}
-                className={`text-sm flex flex-col gap-2 p-4  rounded-xl ${
-                  index % 2 === 0 ? "bg-secondaryColor2" : "bg-secondaryColor4"
-                }`}
+                className="flex items-center gap-3 cursor-pointer hover:scale-105 transition-all"
+                onClick={() => setactiveLink(item.name)}
               >
-                <span className=" text-gray-700">{education.year}</span>
-                <p className=" text-textColor">
-                  <span className=" font-bold">{education.certificate} -</span>{" "}
-                  {education.institution}
-                </p>
+                {item.icon}{" "}
+                <h3
+                  className={`font-base ${
+                    activeLink === item.name
+                      ? "text-textColor"
+                      : "text-[#A6A6A6]"
+                  } font-bold`}
+                >
+                  {item.name}
+                </h3>
               </div>
             ))}
-          </ul>
+          </div>
+          {activeLink === "Education" ? <Education /> : <Experience />}{" "}
         </div>
       </div>
 
