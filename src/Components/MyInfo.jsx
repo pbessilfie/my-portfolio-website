@@ -1,56 +1,37 @@
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
-import { FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { FaBars, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { LiaMobileAltSolid } from "react-icons/lia";
 import { LuCalendarDays } from "react-icons/lu";
 import { MdLocationOn, MdOutlineFileDownload } from "react-icons/md";
 import profileImage from "../assets/dp.jpg";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { MenuProvider } from "../context/MenuContext";
+import { socialLinks } from "../constants/socialLinks";
+import { socialIconSelect } from "../utils/socialIconSelect";
 
 const MyInfo = () => {
-  const socialLinks = [
-    {
-      social: "Facebook",
-      icon: <FaFacebookF />,
-      color: "#206CEA",
-      link: "https://www.facebook.com/prince.essilfiebondzie",
-    },
-    {
-      social: "Twitter",
-      icon: <FaXTwitter />,
-      color: "#000",
-      link: "https://x.com/paakow_2301",
-    },
-    {
-      social: "Instagram",
-      icon: <FaInstagram />,
-      color: "#845050",
-      link: "https://www.instagram.com/prince.essilfiebondzie/?next=%2F",
-    },
-    {
-      social: "Linkedin",
-      icon: <FaLinkedinIn />,
-      color: "#2D4275",
-      link: "https://www.linkedin.com/in/prince-essilfie-bondzie-600aa322a",
-    },
-  ];
+  const Menu = useContext(MenuProvider);
+  const { setIsMenuOpen } = Menu;
+
   return (
-    <div className="sticky top-0 border bg-primaryColor rounded-xl flex flex-col items-center gap-8 px-10 py-12 h-fit">
-      <div className=" w-40 h-40 rounded-xl group overflow-hidden  -mt-36">
+    <div className="sticky top-0 border bg-primaryColor lg:rounded-xl flex lg:flex-col items-center justify-between gap-8 p-5 xl:px-7 xl:py-10 h-fit w-full lg:w-fit">
+      <div className="w-16 h-16 lg:w-52 lg:h-52 rounded-xl group overflow-hidden lg:-mt-36 flex-shrink-0">
         <img
           src={profileImage}
           className=" w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out "
         />
       </div>
       {/* my details */}
-      <div className="flex flex-col gap-4">
-        <h1 className=" font-semibold text-textColor text-xl">
+      <div className="flex flex-col gap-2">
+        <h1 className=" font-semibold text-textColor text-base xl:text-xl text-center">
           Essifie Prince Bondzie
         </h1>
-        <h3 className=" text-sm text-center ">Frontend Developer</h3>
+        <h3 className="text-xs xl:text-sm text-center ">Frontend Developer</h3>
 
         {/* social links */}
-        <div className="flex gap-3 justify-center">
+        <div className="lg:flex gap-3 justify-center hidden">
           {socialLinks.map((social, index) => (
             <Link
               key={index}
@@ -59,13 +40,19 @@ const MyInfo = () => {
               rel="noopener noreferrer"
               className={`bg-secondaryColor p-2 text-[${social.color}] text-xl rounded-md cursor-pointer hover:-translate-y-1 transition-all duration-400 ease-in-out`}
             >
-              {social.icon} 
+              {socialIconSelect(
+                social.social,
+                <FaFacebookF />,
+                <FaXTwitter />,
+                <FaInstagram />,
+                <FaLinkedinIn />
+              )}
             </Link>
           ))}
         </div>
       </div>
 
-      <div className=" bg-secondaryColor p-5 rounded-lg flex flex-col gap-5 min-w-full">
+      <div className="hidden bg-secondaryColor p-5 rounded-lg lg:flex flex-col gap-5 min-w-full">
         <div className="flex gap-3 border-b-2 border-b-[#EBEDED] pb-3">
           <div className=" bg-primaryColor rounded-md p-3 text-xl text-[#845050] font-bold">
             <LiaMobileAltSolid />
@@ -106,12 +93,26 @@ const MyInfo = () => {
         </div>
       </div>
 
-      <button className=" bg-[#1B74E4] flex items-center gap-2 text-primaryColor rounded-md px-5 py-2 text-sm">
+      <Link
+        to={
+          "https://docs.google.com/document/d/1eVbz_e1tzxN75Z7sawFBbMc7Ma_zfAH-iX94tem4ltU/export?format=pdf"
+        }
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden bg-[#1B74E4] lg:flex items-center gap-2 text-primaryColor rounded-md px-5 py-2 text-sm"
+      >
         <MdOutlineFileDownload />
         <span>Download CV</span>
+      </Link>
+      <button
+        className="text-2xl lg:hidden"
+        onClick={() => {
+          setIsMenuOpen((prev) => !prev);
+        }}
+      >
+        <FaBars />
       </button>
     </div>
   );
 };
-
 export default MyInfo;
