@@ -11,7 +11,7 @@ export const workingSkills = [
   },
   {
     skill: "Mobile App Development",
-    percentage: 45,
+    percentage: 25,
     color: "#6487A8",
   },
 
