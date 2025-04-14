@@ -16,7 +16,7 @@ const MyInfo = () => {
   const { setIsMenuOpen } = Menu;
 
   return (
-    <div className="sticky top-0 border bg-primaryColor lg:rounded-xl flex lg:flex-col items-center justify-between gap-8 p-5 xl:px-7 xl:py-10 h-fit w-full lg:w-fit">
+    <div className="sticky top-0 bg-primaryColor lg:rounded-xl flex lg:flex-col items-center justify-between gap-8 p-5 xl:px-7 xl:py-10 h-fit w-full lg:w-fit">
       <div className="w-16 h-16 lg:w-52 lg:h-52 rounded-xl group overflow-hidden lg:-mt-36 flex-shrink-0">
         <img
           src={profileImage}

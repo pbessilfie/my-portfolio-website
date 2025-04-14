@@ -9,16 +9,15 @@ import mavritechLogoSrc from "../assets/Logo 1.png";
 const About = () => {
   const iconSelect = (title) => {
     switch (title) {
-      case "Web development":
-        return <FaCode />;
+      
       case "UI/UX Design":
-        return <CgIfDesign />;
+        return <CgIfDesign className="text-[#EA6985]" />;
       case "Mobile App development":
-        return <MdOutlineDeveloperMode />;
+        return <MdOutlineDeveloperMode className="text-[#D89D26]" />;
       case "Web Design":
-        return <MdOutlineWeb />;
+        return <MdOutlineWeb className="text-[#BE77D8]" />;
       default:
-        return <FaCode />;
+        return <FaCode className="text-[#BE77D8]" />;
     }
   };
 
@@ -66,7 +65,7 @@ const About = () => {
                 className={`${data.bgColor} p-6 rounded-lg space-y-4`}
               >
                 <div
-                  className={`flex gap-3 items-center text-3xl text-[${data.color}] `}
+                  className={`flex gap-3 items-center text-3xl `}
                 >
                   {iconSelect(data.title)}
                   <h3 className=" font-semibold text-base text-black">
