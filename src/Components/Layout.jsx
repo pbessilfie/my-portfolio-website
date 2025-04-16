@@ -20,10 +20,18 @@ const Layout = () => {
   const { darkTheme, setDarkTheme } = Theme;
   const { isMenuOpen, setIsMenuOpen } = Menu;
 
+  const toggleDarkMode = () => {
+    setDarkTheme(!darkTheme);
+  };
+
   return (
     <main className="relative font-roboto-slab flex flex-col lg:flex-row justify-center h-dvh lg:p-10 lg:gap-10 lg:pt-40 overflow-y-auto  ">
-      <div className="fixed top-0 left-0 h-full w-full -z-10 brightness-[0.15]">
-        <img src={BGImgSrc} alt="background image" className="h-full w-full object-cover" />
+      <div className="fixed top-0 left-0 h-full w-full -z-10 brightness-[0.3]">
+        <img
+          src={BGImgSrc}
+          alt="background image"
+          className="h-full w-full object-cover"
+        />
       </div>
       {isMenuOpen && (
         <div
@@ -34,11 +42,11 @@ const Layout = () => {
       <div
         className={`absolute top-0 transition-all ${
           isMenuOpen ? "left-0" : "-left-[200%]"
-        } z-50 bg-secondaryColor p-5 h-dvh w-[80%] `}
+        } z-50 bg-secondaryColor p-5 h-dvh w-[80%] sm:w-2/3 md:w-2/4 `}
       >
         <button
           className="absolute top-10 right-8 w-fit rounded-full text-xl bg-[rgba(255,255,255,0.5)]"
-          onClick={() => setDarkTheme(!darkTheme)}
+          onClick={toggleDarkMode}
         >
           {!darkTheme ? <FaMoon /> : <FaSun />}
         </button>
@@ -128,9 +136,17 @@ const Layout = () => {
       </div>
 
       <MyInfo />
-      <div className="flex-1 flex items-start lg:flex-none  flex-col-reverse lg:flex-col xl:flex-row-reverse lg:gap-8 lg:-mt-28 xl:mt-0 w-fit h-fit overflow-y-auto">
-        <Navbar />
-        <div className="lg:h-fit lg:w-[700px]  bg-primaryColor w-full rounded-xl flex-1">
+      <div className="flex-1 flex items-start lg:flex-none  flex-col-reverse lg:flex-col xl:flex-row-reverse lg:gap-8 lg:-mt-28 xl:mt-0 h-fit ">
+        <div className=" xl:sticky bottom-0 lg:-top-20 flex xl:flex-col gap-5 items-center justify-center xl:-mt-20 self-end xl:self-start -mt-6">
+          <button
+            className=" mx-auto w-fit rounded-full text-2xl p-5 bg-[rgba(255,255,255,0.5)]"
+            onClick={toggleDarkMode}
+          >
+            {!darkTheme ? <FaMoon /> : <FaSun />}
+          </button>
+          <Navbar />
+        </div>
+        <div className="lg:h-fit lg:w-[700px] w-full flex-1 flex">
           <Outlet />
         </div>
       </div>
