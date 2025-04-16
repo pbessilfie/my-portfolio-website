@@ -50,7 +50,7 @@ const Contact = () => {
       toast.error("Message not sent!");
     }
   };
-  console.log(formData);
+  
   return (
     <div className="w-full flex-1 flex flex-col">
       <ToastContainer
