@@ -39,9 +39,10 @@ const Resume = () => {
       ),
     },
   ];
+
   return (
-    <div className="w-full">
-      <div className=" bg-primaryColor rounded-t-xl p-8 ">
+    <div className="w-full flex-1 flex flex-col">
+      <div className=" bg-primaryColor lg:rounded-t-xl p-5 md:p-8 flex-1">
         <div className="flex items-center gap-4 mb-7">
           <h1 className=" text-textColor text-2xl font-bold">Resume</h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
@@ -72,9 +73,9 @@ const Resume = () => {
         </div>
       </div>
 
-      <footer className=" bg-secondaryColor p-8 rounded-b-xl">
-        <div className="flex gap-3 mb-5">
-          <div className=" w-1/2">
+      <footer className=" bg-secondaryColor p-8 lg:rounded-b-xl">
+        <div className="flex flex-col md:flex-row gap-3 mb-5">
+          <div className=" w-full md:w-1/2">
             <h2 className=" text-base font-bold text-textColor mb-3 ">
               Working Skills
             </h2>
@@ -99,7 +100,7 @@ const Resume = () => {
               ))}
             </ul>
           </div>
-          <div className=" w-1/2">
+          <div className="w-full md:w-1/2">
             <h2 className=" text-base font-bold text-textColor mb-3 ">
               Knowledge
             </h2>
