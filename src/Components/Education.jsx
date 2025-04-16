@@ -4,7 +4,7 @@ import { getIndex } from "../utils/getIndex"
 const Education = () => {
     const indeces = getIndex(educationData)
   return (
-    <div><ul className="grid grid-cols-2 gap-4">
+    <div className="flex-1"><ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {educationData.map((education, index) => (
                   <div
                     key={index}

@@ -3,14 +3,10 @@ import { FaRegFileAlt, FaRegFileCode } from "react-icons/fa";
 import { LuContact } from "react-icons/lu";
 import { PNL } from "../constants";
 import { NavLink } from "react-router";
-import { FaMoon, FaSun } from "react-icons/fa6";
-import { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
 
 
 const Navbar = () => {
-const Theme = useContext(ThemeContext)
-const {darkTheme, setDarkTheme} = Theme
+
   const PLIcon = (link) => {
     let sl = link.name;
     if (sl) {
@@ -31,13 +27,8 @@ const {darkTheme, setDarkTheme} = Theme
   };
 
   return (
-    <ul className="bg-primaryColor flex justify-evenly gap-4 xl:flex-col p-5 lg:rounded-xl w-full lg:w-fit h-fit self-end xl:self-start z-30 ">
-      <button
-        className="hidden mx-auto w-fit rounded-full text-2xl p-5 bg-[rgba(255,255,255,0.5)] absolute -top-20"
-        onClick={() => setDarkTheme(!darkTheme)}
-      >
-        {!darkTheme ? <FaMoon /> : <FaSun />}
-      </button>
+    <ul className="bottom-0 bg-primaryColor flex justify-evenly gap-4 xl:flex-col p-5 lg:rounded-xl w-full lg:w-fit h-fit self-end xl:self-start z-30 ">
+     
       {PNL.map((link) => (
         <li
           key={link.name}

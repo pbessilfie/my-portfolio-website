@@ -29,7 +29,7 @@ const About = () => {
   const getYear = new Date().getFullYear();
   return (
     <div className="w-full">
-      <div className=" bg-primaryColor rounded-t-xl p-10 ">
+      <div className=" bg-primaryColor lg:rounded-t-xl p-5 md:p-10 ">
         <div className="flex items-center gap-4 mb-7">
           <h1 className=" text-textColor text-2xl font-bold">About</h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
@@ -58,7 +58,7 @@ const About = () => {
 
         <div className=" mb-2">
           <h2 className=" font-bold text-base mb-7">What I Do!</h2>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {whatIDoData.map((data, index) => (
               <div
                 key={index}
@@ -80,7 +80,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <footer className=" bg-secondaryColor p-10 rounded-b-xl">
+      <footer className=" bg-secondaryColor p-10 lg:rounded-b-xl">
         <h3 className="font-bold text-lg text-center mb-5">Clients</h3>
         <div className="flex items-center justify-evenly mb-10">
           {clients.map((client, index) => (

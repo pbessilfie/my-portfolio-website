@@ -4,8 +4,8 @@ import { getIndex } from "../utils/getIndex";
 const Experience = () => {
     const indeces = getIndex(workExperience)
   return (
-    <div>
-      <ul className="grid grid-cols-2 gap-4">
+    <div className="flex-1">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {workExperience.map((experience, index) => (
           <div
             key={index}
