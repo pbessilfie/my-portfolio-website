@@ -21,9 +21,11 @@ const Works = () => {
 
   return (
     <div className="w-full ">
-      <div className=" bg-primaryColor lg:rounded-t-xl p-5 md:p-8 ">
+      <div className=" bg-primaryColor dark:bg-black dark:text-white lg:rounded-t-xl p-5 md:p-8 ">
         <div className="flex items-center gap-4 mb-7">
-          <h1 className=" text-textColor text-2xl font-bold">Works</h1>
+          <h1 className=" text-textColor dark:text-white text-2xl font-bold">
+            Works
+          </h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
         </div>
 
@@ -33,9 +35,9 @@ const Works = () => {
               <li
                 key={index}
                 target="_blank"
-                className={`relative work-nav-links text-sm text-[#A6A6A6] font-semibold hover:text-textColor hover:-translate-y-1  cursor-pointer transition-all duration-500 ease-in-out ${
+                className={`relative work-nav-links text-sm text-[#A6A6A6] font-semibold hover:text-textColor dark:hover:text-gray-400 hover:-translate-y-1  cursor-pointer transition-all duration-300 ease-in-out dark:text-white ${
                   activeLink === link
-                    ? "-translate-y-1 text-textColor after:w-10/12 after:h-[20x] after:rounded-full after:bg-[#1b74e4] after:mt-1"
+                    ? "-translate-y-1 text-textColor"
                     : " translate-y-0"
                 }`}
                 onClick={() => {
@@ -61,7 +63,7 @@ const Works = () => {
             <Link
               to={project.link}
               key={index}
-              className={` p-3 rounded-[24px] hover:shadow-xl transition-all ease-in-out duration-500  flex flex-col items-center gap-3 cursor-pointer group ${
+              className={` p-3 rounded-[24px] hover:shadow-xl transition-all ease-in-out duration-500  flex flex-col items-center gap-3 cursor-pointer group dark:bg-darkBg ${
                 indeces.includes(index)
                   ? "bg-secondaryColor2"
                   : "bg-secondaryColor4"
@@ -74,7 +76,7 @@ const Works = () => {
                   className=" h-full w-full object-cover group-hover:scale-110 transition-all ease-in-out duration-500"
                 />
               </div>
-              <span className=" text-[10px] font-extralight text-gray-500 self-start">
+              <span className=" text-[10px] font-extralight text-gray-500 dark:text-gray-400 self-start">
                 {project.category}
               </span>
               <p className=" text-sm font-semibold self-start">
@@ -86,8 +88,8 @@ const Works = () => {
 
         {/* <div></div> */}
       </div>
-      <footer className=" bg-secondaryColor p-4 lg:rounded-b-xl">
-        <div className="flex justify-center text-[9px] font-thin text-gray-600 text-center ">
+      <footer className=" bg-secondaryColor  dark:bg-black dark:text-white dark:border-t dark:border-slate-600 p-4 lg:rounded-b-xl">
+        <div className="flex justify-center text-[9px] font-thin dark:text-white text-gray-600 text-center ">
           <span className="flex items-center gap-1">
             <FaRegCopyright className="" /> 2024 All Rights Reserved by
             evolution architects
