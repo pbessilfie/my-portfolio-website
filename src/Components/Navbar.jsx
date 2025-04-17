@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <ul className="bottom-0 bg-primaryColor flex justify-evenly gap-4 xl:flex-col p-5 lg:rounded-xl w-full lg:w-fit h-fit self-end xl:self-start z-30 ">
+    <ul className="bg-primaryColor dark:bg-black flex justify-evenly gap-4 xl:flex-col p-5 lg:rounded-xl w-full lg:w-fit h-fit self-end xl:self-start z-30 ">
      
       {PNL.map((link) => (
         <li
@@ -40,7 +40,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "bg-[#1B74E4] text-secondaryColor p-2 flex flex-col items-center rounded-lg text-xs text-center hover:bg-[#1B74E4] hover:text-secondaryColor  "
-                : "bg-secondaryColor text-textColor p-2 flex flex-col items-center rounded-lg text-xs text-center hover:bg-[#1B74E4] hover:text-secondaryColor  "
+                : "bg-secondaryColor dark:bg-darkBg dark:text-white text-textColor p-2 flex flex-col items-center rounded-lg text-xs text-center hover:bg-[#1B74E4] hover:text-secondaryColor  "
             }
           >
             <div className="text-2xl mb-2">{PLIcon(link)}</div>{" "}
