@@ -97,7 +97,7 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleFormData}
-                className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-none bg-transparent p-3 text-[#303132] text-sm"
+                className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-hidden bg-transparent p-3 text-[#303132] text-sm"
                 onFocus={() => setIsNameFocused(true)}
                 onBlur={() => setIsNameFocused(false)}
                 required
@@ -118,7 +118,7 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleFormData}
-                className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-none bg-transparent p-3 text-[#303132] text-sm"
+                className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-hidden bg-transparent p-3 text-[#303132] text-sm"
                 onFocus={() => setIsEmailFocused(true)}
                 onBlur={() => setIsEmailFocused(false)}
                 required
@@ -141,7 +141,7 @@ const Contact = () => {
                 onChange={handleFormData}
                 rows={5}
                 cols={10}
-                className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-none bg-transparent p-3 text-[#303132] text-sm"
+                className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-hidden bg-transparent p-3 text-[#303132] text-sm"
                 onFocus={() => setIsMessageFocused(true)}
                 onBlur={() => setIsMessageFocused(false)}
                 required
