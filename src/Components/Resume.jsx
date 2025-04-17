@@ -42,9 +42,9 @@ const Resume = () => {
 
   return (
     <div className="w-full flex-1 flex flex-col">
-      <div className=" bg-primaryColor lg:rounded-t-xl p-5 md:p-8 flex-1">
+      <div className=" bg-primaryColor dark:bg-black lg:rounded-t-xl p-5 md:p-8 flex-1">
         <div className="flex items-center gap-4 mb-7">
-          <h1 className=" text-textColor text-2xl font-bold">Resume</h1>
+          <h1 className=" text-textColor dark:text-white text-2xl font-bold">Resume</h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
         </div>
 
@@ -58,7 +58,7 @@ const Resume = () => {
               >
                 {item.icon}{" "}
                 <h3
-                  className={`font-base ${
+                  className={`font-base dark:text-white ${
                     activeLink === item.name
                       ? "text-textColor"
                       : "text-[#A6A6A6]"
@@ -73,10 +73,10 @@ const Resume = () => {
         </div>
       </div>
 
-      <footer className=" bg-secondaryColor p-8 lg:rounded-b-xl">
+      <footer className=" bg-secondaryColor dark:bg-black dark:text-white dark:border-t dark:border-slate-600 p-8 lg:rounded-b-xl">
         <div className="flex flex-col md:flex-row gap-3 mb-5">
           <div className=" w-full md:w-1/2">
-            <h2 className=" text-base font-bold text-textColor mb-3 ">
+            <h2 className=" text-base font-bold text-textColor dark:text-white mb-3 ">
               Working Skills
             </h2>
 
@@ -101,14 +101,14 @@ const Resume = () => {
             </ul>
           </div>
           <div className="w-full md:w-1/2">
-            <h2 className=" text-base font-bold text-textColor mb-3 ">
+            <h2 className=" text-base font-bold text-textColor dark:text-white mb-3 ">
               Knowledge
             </h2>
             <ul className="flex flex-wrap gap-3">
               {Knowledge.map((item, index) => (
                 <li
                   key={index}
-                  className=" bg-secondaryColor3 text-textColor p-2 rounded-lg text-[12px]"
+                  className=" bg-secondaryColor3 dark:bg-darkBg dark:text-white text-textColor p-2 rounded-lg text-[12px]"
                 >
                   {item}{" "}
                 </li>
@@ -117,7 +117,7 @@ const Resume = () => {
           </div>
         </div>
 
-        <div className="flex justify-center text-[9px] font-thin text-gray-600 text-center ">
+        <div className="flex justify-center text-[9px] font-thin dark:text-white text-gray-600 text-center ">
           <span className="flex items-center gap-1">
             <FaRegCopyright className="" /> 2024 All Rights Reserved by
             evolution architects

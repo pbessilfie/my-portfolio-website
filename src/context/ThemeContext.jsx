@@ -3,7 +3,11 @@ import { createContext, useState } from "react";
 
 const ThemeContext = createContext();
 const ThemeProvider = ({ children }) => {
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(
+    localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
 
   return (
     <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>

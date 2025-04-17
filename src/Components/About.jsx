@@ -5,8 +5,12 @@ import { whatIDoData } from "../constants/whatIDoData";
 import nestSoftLogoSrc from "../assets/nestsoft-logo.png";
 import xcuxionLogoSrc from "../assets/xcuxion-logo-removebg-preview 1.png";
 import mavritechLogoSrc from "../assets/Logo 1.png";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 const About = () => {
+   const Theme = useContext(ThemeContext);
+   const { darkTheme } = Theme;
   const iconSelect = (title) => {
     switch (title) {
       
@@ -28,10 +32,12 @@ const About = () => {
   ];
   const getYear = new Date().getFullYear();
   return (
-    <div className="w-full">
-      <div className=" bg-primaryColor lg:rounded-t-xl p-5 md:p-10 ">
+    <div className="w-full dark:text-white overflow-y-auto flex-1">
+      <div className=" bg-primaryColor dark:bg-black lg:rounded-t-xl p-5 md:p-10 ">
         <div className="flex items-center gap-4 mb-7">
-          <h1 className=" text-textColor text-2xl font-bold">About</h1>
+          <h1 className=" text-textColor dark:text-white text-2xl font-bold">
+            About
+          </h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
         </div>
         <div
@@ -58,17 +64,15 @@ const About = () => {
 
         <div className=" mb-2">
           <h2 className=" font-bold text-base mb-7">What I Do!</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {whatIDoData.map((data, index) => (
               <div
                 key={index}
-                className={`${data.bgColor} p-6 rounded-lg space-y-4`}
+                className={`${data.bgColor} dark:bg-darkBg p-6 rounded-lg space-y-4`}
               >
-                <div
-                  className={`flex gap-3 items-center text-3xl `}
-                >
+                <div className={`flex gap-3 items-center text-3xl `}>
                   {iconSelect(data.title)}
-                  <h3 className=" font-semibold text-base text-black">
+                  <h3 className=" font-semibold text-base text-black dark:text-white">
                     {data.title}
                   </h3>
                 </div>
@@ -80,23 +84,21 @@ const About = () => {
           </div>
         </div>
       </div>
-      <footer className=" bg-secondaryColor p-10 lg:rounded-b-xl">
+      <footer className=" bg-secondaryColor  dark:bg-black dark:text-white dark:border-t dark:border-slate-600 p-10 lg:rounded-b-xl">
         <h3 className="font-bold text-lg text-center mb-5">Clients</h3>
         <div className="flex items-center justify-evenly mb-10">
           {clients.map((client, index) => (
-              <img
+            <img
               key={index}
-                src={client.logo}
-                alt={client.name}
-                style={{filter: 'brightness(0)'}}
-                className={`w-12 ${index === 0 && 'w-14'}`}
-              />
+              src={client.logo}
+              alt={client.name}
+              style={{ filter: darkTheme ? "brightness(1)" : "brightness(0)" }}
+              className={`w-12 ${index === 0 && "w-14"}`}
+            />
           ))}
-
-      
         </div>
 
-        <div className="flex justify-center text-[9px] font-thin text-gray-600 text-center ">
+        <div className="flex justify-center text-[9px] font-thin dark:text-white text-gray-600 text-center ">
           <span className="flex items-center gap-1">
             <FaRegCopyright className="" /> {getYear} All Rights Reserved by
             evolution architects
