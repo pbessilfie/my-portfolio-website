@@ -51,7 +51,7 @@ const Layout = () => {
           {!darkTheme ? <FaMoon /> : <FaSun />}
         </button>
         <div className="border-b py-2">
-          <div className="w-16 h-16 rounded-full group overflow-hidden flex-shrink-0">
+          <div className="w-16 h-16 rounded-full group overflow-hidden shrink-0">
             <img
               src={profileImage}
               className=" w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out "
