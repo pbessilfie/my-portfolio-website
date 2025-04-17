@@ -3,7 +3,7 @@
 @theme {
   --color-primaryColor: #ffffff;
   --color-primaryColor2: #9dfe76;
-  --color-darkBg: #212000;
+  --color-darkBg: #1a1a1a;
   --color-secondaryColor: #eff5f9;
   --color-secondaryColor2: #fff5f4;
   --color-secondaryColor3: #e4ecea;
@@ -12,6 +12,9 @@
 
   --font-roboto-slab: Roboto Slab, sans-serif;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
