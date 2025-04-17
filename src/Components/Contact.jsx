@@ -66,28 +66,28 @@ const Contact = () => {
         theme="light"
         // transition={Bounce}
       />
-      <div className=" bg-primaryColor lg:rounded-t-xl p-8 flex-1
+      <div className=" bg-primaryColor dark:bg-black lg:rounded-t-xl p-5 lg:p-8 flex-1
       ">
         <div className="flex items-center gap-4 mb-7">
-          <h1 className=" text-textColor text-2xl font-bold">Contact</h1>
+          <h1 className=" text-textColor dark:text-white text-2xl font-bold">Contact</h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
         </div>
 
         {/* contact form */}
-        <div className=" bg-secondaryColor rounded-2xl p-10">
-          <h4 className=" text-base text-gray-600 mb-10">
+        <div className=" bg-secondaryColor dark:bg-darkBg rounded-2xl px-5 py-8 md:p-8 lg:p-10">
+          <h4 className=" text-base dark:text-gray-400 text-gray-600 mb-10">
             I’m Always Open To Discussing Product <br />
-            <span className=" font-semibold text-textColor ">
+            <span className=" font-semibold text-textColor dark:text-white">
               design word of partnerships.
             </span>
           </h4>
           <form onSubmit={onSubmit}>
             <div className="relative w-full h-5 mb-10 ">
               <label
-                className={`absolute  text-sm font-normal transition-all duration-500 ease-in-out ${
+                className={`absolute  text-sm font-normal transition-all duration-400 ease-in-out ${
                   isNameFocused || formData.name
                     ? "-top-4 left-1 scale-75 text-[#1B74E4]"
-                    : "top-0 left-3 text-[#303132]"
+                    : "top-0 left-3 text-[#303132] dark:text-white"
                 }`}
               >
                 Name
@@ -97,7 +97,7 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleFormData}
-                className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-hidden bg-transparent p-3 text-[#303132] text-sm"
+                className=" w-full h-full border-b border-b-[#484A4B]  dark:border-b-white focus:border-b-[#1B74E4] outline-hidden bg-transparent p-3 text-[#303132] dark:text-white text-sm"
                 onFocus={() => setIsNameFocused(true)}
                 onBlur={() => setIsNameFocused(false)}
                 required
@@ -105,10 +105,10 @@ const Contact = () => {
             </div>
             <div className="relative w-full  h-5 mb-10 ">
               <label
-                className={`absolute  text-sm font-normal transition-all duration-500 ease-in-out ${
+                className={`absolute  text-sm font-normal transition-all duration-400 ease-in-out ${
                   isEmailFocused || formData.email
                     ? "-top-4 left-1 scale-75 text-[#1B74E4]"
-                    : "top-0 left-3 text-[#303132]"
+                    : "top-0 left-3 text-[#303132] dark:text-white"
                 }`}
               >
                 Email
@@ -118,7 +118,7 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleFormData}
-                className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-hidden bg-transparent p-3 text-[#303132] text-sm"
+                className=" w-full h-full border-b border-b-[#484A4B]  dark:border-b-white focus:border-b-[#1B74E4] outline-hidden bg-transparent p-3 text-[#303132] dark:text-white text-sm"
                 onFocus={() => setIsEmailFocused(true)}
                 onBlur={() => setIsEmailFocused(false)}
                 required
@@ -126,10 +126,10 @@ const Contact = () => {
             </div>
             <div className="relative w-full  h-20 mb-10 ">
               <label
-                className={`absolute  text-sm font-normal transition-all duration-500 ease-in-out ${
+                className={`absolute  text-sm font-normal transition-all duration-400 ease-in-out ${
                   isMessageFocused || formData.message
                     ? "-top-4 left-1 scale-75 text-[#1B74E4]"
-                    : "top-0 left-3 text-[#303132]"
+                    : "top-0 left-3 text-[#303132] dark:text-white"
                 }`}
               >
                 Message
@@ -141,7 +141,7 @@ const Contact = () => {
                 onChange={handleFormData}
                 rows={5}
                 cols={10}
-                className=" w-full h-full border-b border-b-[#484A4B] focus:border-b-[#1B74E4] outline-hidden bg-transparent p-3 text-[#303132] text-sm"
+                className=" w-full h-full border-b border-b-[#484A4B]  dark:border-b-white focus:border-b-[#1B74E4] outline-hidden bg-transparent p-3 text-[#303132] dark:text-white text-sm"
                 onFocus={() => setIsMessageFocused(true)}
                 onBlur={() => setIsMessageFocused(false)}
                 required
@@ -152,7 +152,7 @@ const Contact = () => {
               onClick={()=>{
                 formData.name && formData.email && formData.message ? onSubmit : toast.error("Please fill all fields")
               }}
-              className=" border border-textColor rounded-xl text-sm px-8 py-2 hover:bg-[#1B74E4] hover:text-secondaryColor transition-all duration-500 ease-in-out"
+              className=" border border-textColor dark:border-white dark:text-white rounded-xl text-sm px-8 py-2 hover:bg-[#1B74E4] hover:text-secondaryColor transition-all duration-500 ease-in-out"
             >
               Submit
             </button>
@@ -160,8 +160,8 @@ const Contact = () => {
         </div>
       </div>
 
-      <footer className=" bg-secondaryColor p-8 lg:rounded-b-xl">
-        <div className="flex justify-center text-[9px] font-thin text-gray-600 text-center ">
+      <footer className=" bg-secondaryColor dark:bg-black dark:border-t dark:border-t-slate-600 p-8 lg:rounded-b-xl">
+        <div className="flex justify-center text-[9px] font-thin dark:text-white text-gray-600 text-center ">
           <span className="flex items-center gap-1">
             <FaRegCopyright className="" /> 2024 All Rights Reserved by
             evolution architects
