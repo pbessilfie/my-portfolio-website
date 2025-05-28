@@ -45,7 +45,7 @@ const About = () => {
       "
         >
           <p className=" text-sm mb-4">
-            I’m a Frontend Developer based in Sydney, Australia, specializing in
+            I’m a Frontend Developer based in Ghana, specializing in
             building and optimizing user-focused, responsive websites and
             applications. With a strong background in HTML, CSS, and JavaScript
             (including modern library like React and framework like Next), I
