@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FaRegCopyright } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
+import { motion } from "framer-motion";
+import { fadeIn } from "../constants/variants";
 
 const Contact = () => {
   const [isNameFocused, setIsNameFocused] = useState(false);
@@ -50,7 +52,7 @@ const Contact = () => {
       toast.error("Message not sent!");
     }
   };
-  
+
   return (
     <div className="w-full flex-1 flex flex-col">
       <ToastContainer
@@ -66,23 +68,42 @@ const Contact = () => {
         theme="light"
         // transition={Bounce}
       />
-      <div className=" bg-primaryColor dark:bg-black lg:rounded-t-xl p-5 lg:p-8 flex-1
-      ">
-        <div className="flex items-center gap-4 mb-7">
-          <h1 className=" text-textColor dark:text-white text-2xl font-bold">Contact</h1>
+      <div
+        className=" bg-primaryColor dark:bg-black lg:rounded-t-xl p-5 lg:p-8 flex-1
+      "
+      >
+        <motion.div
+          variants={fadeIn("left", 0.4)}
+          initial="hidden"
+          animate="show"
+          className="flex items-center gap-4 mb-7"
+        >
+          <h1 className=" text-textColor dark:text-white text-2xl font-bold">
+            Contact
+          </h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
-        </div>
+        </motion.div>
 
         {/* contact form */}
         <div className=" bg-secondaryColor dark:bg-darkBg rounded-2xl px-5 py-8 md:p-8 lg:p-10">
-          <h4 className=" text-base dark:text-gray-400 text-gray-600 mb-10">
+          <motion.h4
+            variants={fadeIn("up", 0.4)}
+            initial="hidden"
+            animate="show"
+            className=" text-base dark:text-gray-400 text-gray-600 mb-10"
+          >
             I’m Always Open To Discussing Product <br />
             <span className=" font-semibold text-textColor dark:text-white">
               design word of partnerships.
             </span>
-          </h4>
+          </motion.h4>
           <form onSubmit={onSubmit}>
-            <div className="relative w-full h-5 mb-10 ">
+            <motion.div
+              variants={fadeIn("down", 0.4)}
+              initial="hidden"
+              animate="show"
+              className="relative w-full h-5 mb-10 "
+            >
               <label
                 className={`absolute  text-sm font-normal transition-all duration-400 ease-in-out ${
                   isNameFocused || formData.name
@@ -102,8 +123,13 @@ const Contact = () => {
                 onBlur={() => setIsNameFocused(false)}
                 required
               />
-            </div>
-            <div className="relative w-full  h-5 mb-10 ">
+            </motion.div>
+            <motion.div
+              variants={fadeIn("down", 0.45)}
+              initial="hidden"
+              animate="show"
+              className="relative w-full  h-5 mb-10 "
+            >
               <label
                 className={`absolute  text-sm font-normal transition-all duration-400 ease-in-out ${
                   isEmailFocused || formData.email
@@ -123,8 +149,13 @@ const Contact = () => {
                 onBlur={() => setIsEmailFocused(false)}
                 required
               />
-            </div>
-            <div className="relative w-full  h-20 mb-10 ">
+            </motion.div>
+            <motion.div
+              variants={fadeIn("down", 0.5)}
+              initial="hidden"
+              animate="show"
+              className="relative w-full  h-20 mb-10 "
+            >
               <label
                 className={`absolute  text-sm font-normal transition-all duration-400 ease-in-out ${
                   isMessageFocused || formData.message
@@ -146,27 +177,34 @@ const Contact = () => {
                 onBlur={() => setIsMessageFocused(false)}
                 required
               ></textarea>
-            </div>
-            <button
+            </motion.div>
+            <motion.button
+              variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              animate="show"
               type="submit"
-              onClick={()=>{
-                formData.name && formData.email && formData.message ? onSubmit : toast.error("Please fill all fields")
+              onClick={() => {
+                formData.name && formData.email && formData.message
+                  ? onSubmit
+                  : toast.error("Please fill all fields");
               }}
               className=" border border-textColor dark:border-white dark:text-white rounded-xl text-sm px-8 py-2 hover:bg-[#1B74E4] hover:text-secondaryColor transition-all duration-500 ease-in-out"
             >
               Submit
-            </button>
+            </motion.button>
           </form>
         </div>
       </div>
 
       <footer className=" bg-secondaryColor dark:bg-black dark:border-t dark:border-t-slate-600 p-8 lg:rounded-b-xl">
-        <div className="flex justify-center text-[9px] font-thin dark:text-white text-gray-600 text-center ">
+        <motion.div variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              animate="show" className="flex justify-center text-[9px] font-thin dark:text-white text-gray-600 text-center ">
           <span className="flex items-center gap-1">
             <FaRegCopyright className="" /> 2024 All Rights Reserved by
             evolution architects
           </span>
-        </div>
+        </motion.div>
       </footer>
     </div>
   );

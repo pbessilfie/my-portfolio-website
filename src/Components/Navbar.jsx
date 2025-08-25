@@ -3,6 +3,8 @@ import { FaRegFileAlt, FaRegFileCode } from "react-icons/fa";
 import { LuContact } from "react-icons/lu";
 import { PNL } from "../constants";
 import { NavLink } from "react-router";
+import {motion} from 'framer-motion'
+import { fadeIn } from "../constants/variants";
 
 
 const Navbar = () => {
@@ -29,8 +31,12 @@ const Navbar = () => {
   return (
     <ul className="bg-primaryColor dark:bg-black flex justify-evenly gap-4 xl:flex-col p-5 lg:rounded-xl w-full lg:w-fit h-fit self-end xl:self-start z-30 ">
      
-      {PNL.map((link) => (
-        <li
+      {PNL.map((link,index) => (
+        <motion.li
+          variants={fadeIn("up", 0.25, index)}
+                          initial="hidden"
+                          animate="show"
+                          viewport={{ once: true }}
           key={link.name}
           className="transition-all duration-400 ease-in-out cursor-pointer w-1/5 scale-75 lg:scale-95 lg:w-full
 "
@@ -46,7 +52,7 @@ const Navbar = () => {
             <div className="text-2xl mb-2">{PLIcon(link)}</div>{" "}
             <span>{link.name}</span>
           </NavLink>
-        </li>
+        </motion.li>
       ))}
     </ul>
   );

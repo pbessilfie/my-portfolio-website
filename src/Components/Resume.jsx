@@ -6,6 +6,8 @@ import { Knowledge } from "../constants/knowledge";
 import { useState } from "react";
 import Education from "./Education";
 import Experience from "./Experience";
+import { motion } from "framer-motion";
+import { fadeIn } from "../constants/variants";
 
 const Resume = () => {
   const [activeLink, setactiveLink] = useState("Education");
@@ -43,10 +45,17 @@ const Resume = () => {
   return (
     <div className="w-full flex-1 flex flex-col">
       <div className=" bg-primaryColor dark:bg-black lg:rounded-t-xl p-5 md:p-8 flex-1">
-        <div className="flex items-center gap-4 mb-7">
-          <h1 className=" text-textColor dark:text-white text-2xl font-bold">Resume</h1>
+        <motion.div
+          variants={fadeIn("left", 0.25)}
+          initial="hidden"
+          animate="show"
+          className="flex items-center gap-4 mb-7"
+        >
+          <h1 className=" text-textColor dark:text-white text-2xl font-bold">
+            Resume
+          </h1>
           <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
-        </div>
+        </motion.div>
 
         <div>
           <div className=" grid grid-cols-2 mb-6">
@@ -76,13 +85,24 @@ const Resume = () => {
       <footer className=" bg-secondaryColor dark:bg-black dark:text-white dark:border-t dark:border-slate-600 p-8 lg:rounded-b-xl">
         <div className="flex flex-col md:flex-row gap-3 mb-5">
           <div className=" w-full md:w-1/2">
-            <h2 className=" text-base font-bold text-textColor dark:text-white mb-3 ">
+            <motion.h2
+              variants={fadeIn("up", 0.25)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: true }}
+              className=" text-base font-bold text-textColor dark:text-white mb-3 "
+            >
               Working Skills
-            </h2>
+            </motion.h2>
 
             <ul className=" flex flex-col gap-4">
               {workingSkills.map((skill, index) => (
-                <div key={index}>
+                <motion.div
+                  variants={fadeIn("left", 0.25, index)}
+                  initial="hidden"
+                  animate="show"
+                  key={index}
+                >
                   <div className="text-[12px] font-normal flex items-center justify-between">
                     <label className=" ">{skill.skill}</label>
                     <span>{skill.percentage}%</span>
@@ -96,22 +116,32 @@ const Resume = () => {
                       className="absolute top-0 left-0 h-full bg-[#C77778] rounded-full z-10"
                     ></div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </ul>
           </div>
           <div className="w-full md:w-1/2">
-            <h2 className=" text-base font-bold text-textColor dark:text-white mb-3 ">
+            <motion.h2
+              variants={fadeIn("up", 0.25)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: true }}
+              className=" text-base font-bold text-textColor dark:text-white mb-3 "
+            >
               Knowledge
-            </h2>
+            </motion.h2>
             <ul className="flex flex-wrap gap-3">
               {Knowledge.map((item, index) => (
-                <li
+                <motion.li
                   key={index}
                   className=" bg-secondaryColor3 dark:bg-darkBg dark:text-white text-textColor p-2 rounded-lg text-[12px]"
+                  variants={fadeIn("up", 0.07, index)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
                 >
                   {item}{" "}
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
