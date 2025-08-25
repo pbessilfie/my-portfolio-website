@@ -10,6 +10,8 @@ import recipeSharingImgSrc from "../assets/recipesharing.png";
 import frazaiImgSrc from "../assets/frazai.png";
 import movieWebsiteUIImgSrc from "../assets/MovieWebsiteUI.png";
 import portfolioImgSrc from "../assets/my-portfolio.png";
+import abode3GymImgSrc from "../assets/abode-gym-management.png";
+import goldCoastFoodImgSrc from "../assets/gold-coast-food.png";
 
 export {
   ahomaImgSrc,
@@ -24,4 +26,6 @@ export {
   frazaiImgSrc,
   movieWebsiteUIImgSrc,
   portfolioImgSrc,
+  abode3GymImgSrc,
+  goldCoastFoodImgSrc,
 };

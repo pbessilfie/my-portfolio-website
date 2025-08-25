@@ -11,6 +11,8 @@ import {
   frazaiImgSrc,
   movieWebsiteUIImgSrc,
   portfolioImgSrc,
+  abode3GymImgSrc,
+  goldCoastFoodImgSrc,
 } from "./thumbnails";
 
 export const PNL = [
@@ -34,11 +36,18 @@ export const projects = [
     link: "https://hcare.nestsofts.com/",
   },
   {
-    thumbnail: abAutohubImgSrc,
+    thumbnail: abode3GymImgSrc,
     category: "Web App",
-    projectTitle: " AB Autohub Motors",
-    link: "https://hcare.nestsofts.com/",
+    projectTitle: " Abode3 Gym Management System",
+    link: "https://abode3.nestsofts.com/",
   },
+  {
+    thumbnail: goldCoastFoodImgSrc,
+    category: "Web App",
+    projectTitle: "Gold Coast Food",
+    link: "https://sanka.nestsofts.com/",
+  },
+
   {
     thumbnail: bitbloghubImgSrc,
     category: "Web App",
@@ -51,12 +60,7 @@ export const projects = [
     projectTitle: "Nestsofts Company Website",
     link: "https://www.nestsofts.com/",
   },
-  {
-    thumbnail: cinespectreImgSrc,
-    category: "Web App",
-    projectTitle: "Cinespectre",
-    link: "https://abode3-site.nestsofts.com/",
-  },
+
   {
     thumbnail: abode3ImgSrc,
     category: "Web App",
@@ -64,10 +68,22 @@ export const projects = [
     link: "https://abode3-site.nestsofts.com/",
   },
   {
+    thumbnail: abAutohubImgSrc,
+    category: "Web App",
+    projectTitle: " AB Autohub Motors",
+    link: "https://ab-autohub-motors.vercel.app/browse",
+  },
+  {
     thumbnail: nikeLpImgSrc,
     category: "Web App",
     projectTitle: " Nike Landing page clone",
     link: "https://github.com/pbessilfie/Nike-LP.git",
+  },
+  {
+    thumbnail: cinespectreImgSrc,
+    category: "Web App",
+    projectTitle: "Cinespectre",
+    link: "https://abode3-site.nestsofts.com/",
   },
   {
     thumbnail: recipeSharingImgSrc,
