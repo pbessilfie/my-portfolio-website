@@ -1,26 +1,26 @@
 export const whatIDoData = [
   {
-    title: "Web development",
+    title: "Frontend Development",
     description:
-      "Building robust, scalable, and secure websites that transform your online presence. By leveraging modern tools and technologies, we ensure your site is fast, reliable, and easy to maintain, all while meeting your unique business objectives.",
+      "Building fast, responsive, and accessible UIs with React.js and Next.js. From architecting component systems to optimizing rendering performance, I write clean TypeScript code that scales across teams and products.",
     bgColor: "bg-secondaryColor2",
   },
   {
     title: "UI/UX Design",
     description:
-      "Crafting intuitive, user-centric interfaces that deliver a seamless and engaging experience. Through thoughtful research, prototyping, and testing, we align aesthetics and functionality to create digital products that truly resonate with your audience.",
+      "Translating Figma designs into pixel-perfect interfaces with meticulous attention to spacing, typography, and micro-interactions. I bridge the gap between design vision and engineering execution.",
     bgColor: "bg-secondaryColor",
   },
   {
-    title: "Mobile App development",
+    title: "API Integration",
     description:
-      "Developing high-performance, cross-platform mobile applications tailored to your brand’s needs. Our approach focuses on usability, scalability, and a polished user experience, ensuring your app stands out in a crowded marketplace",
+      "Connecting frontends to REST APIs, Firebase, and third-party services including Stripe, Paystack, and Socket.io to enable real-time data flow, payments, live chat, and dynamic features.",
     bgColor: "bg-secondaryColor",
   },
   {
-    title: "Web Design",
+    title: "Performance Optimization",
     description:
-      "Designing visually striking and responsive websites that reflect your brand identity. By blending appealing layouts, cohesive color schemes, and effective typography, we create sites that not only look great but also captivate and retain your audience",
+      "Improving Core Web Vitals through code splitting, lazy loading, and efficient rendering strategies. I use TanStack Query for server-state caching and apply best practices to cut load times significantly.",
     bgColor: "bg-secondaryColor2",
   },
 ];
