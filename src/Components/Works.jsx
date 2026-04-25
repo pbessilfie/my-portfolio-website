@@ -5,7 +5,8 @@ import { useState } from "react";
 import { getIndex } from "../utils/getIndex";
 import { Link } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
-import { fadeIn, scaleIn } from "../constants/variants";
+import { slideLeft, slideUp, cardReveal, pageTransition } from "../constants/motionSystem";
+
 const Works = () => {
   const [works, setWorks] = useState(projects);
   const [activeLink, setActiveLink] = useState("All");
@@ -21,11 +22,18 @@ const Works = () => {
     setWorks(newWorks);
   };
 
+  const year = new Date().getFullYear();
+
   return (
-    <div className="w-full ">
+    <motion.div
+      className="w-full"
+      variants={pageTransition}
+      initial="hidden"
+      animate="show"
+    >
       <div className=" bg-primaryColor dark:bg-black dark:text-white lg:rounded-t-xl p-5 md:p-8 ">
         <motion.div
-          variants={fadeIn("left", 0.25)}
+          variants={slideLeft(0)}
           initial="hidden"
           animate="show"
           className="flex items-center gap-4 mb-7"
@@ -33,11 +41,11 @@ const Works = () => {
           <h1 className=" text-textColor dark:text-white text-2xl font-bold">
             Works
           </h1>
-          <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
+          <hr className=" border-brand border-2 w-32 rounded-full" />
         </motion.div>
 
         <motion.div
-          variants={fadeIn("up", 0.25)}
+          variants={slideUp(0.05)}
           initial="hidden"
           animate="show"
           className=" my-6"
@@ -46,7 +54,6 @@ const Works = () => {
             {workNav.map((link, index) => (
               <li
                 key={index}
-                target="_blank"
                 className={`relative work-nav-links text-sm text-[#A6A6A6] font-semibold hover:text-textColor dark:hover:text-gray-400 hover:-translate-y-1  cursor-pointer transition-all duration-300 ease-in-out dark:text-white ${
                   activeLink === link
                     ? "-translate-y-1 text-textColor"
@@ -74,12 +81,16 @@ const Works = () => {
           <AnimatePresence>
             {works.map((project, index) => (
               <motion.div
-                variants={scaleIn(0.25, index)}
+                variants={cardReveal(index)}
                 initial="hidden"
-                animate={"show"}
-                viewport={{ once: true, amount: 0.25 }}
-                exit={"hidden"}
+                animate="show"
+                exit="hidden"
                 key={index}
+                whileHover={{
+                  y: -6,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
+                  transition: { type: "spring", stiffness: 300, damping: 25 },
+                }}
               >
                 <Link
                   to={project.link}
@@ -107,18 +118,16 @@ const Works = () => {
             ))}
           </AnimatePresence>
         </div>
-
-        {/* <div></div> */}
       </div>
       <footer className=" bg-secondaryColor  dark:bg-black dark:text-white dark:border-t dark:border-slate-600 p-4 lg:rounded-b-xl">
         <div className="flex justify-center text-[9px] font-thin dark:text-white text-gray-600 text-center ">
           <span className="flex items-center gap-1">
-            <FaRegCopyright className="" /> 2024 All Rights Reserved by
-            evolution architects
+            <FaRegCopyright /> {year} All Rights Reserved by evolution
+            architects
           </span>
         </div>
       </footer>
-    </div>
+    </motion.div>
   );
 };
 

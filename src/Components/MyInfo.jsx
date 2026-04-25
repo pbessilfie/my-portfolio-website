@@ -11,7 +11,7 @@ import { MenuProvider } from "../context/MenuContext";
 import { socialLinks } from "../constants/socialLinks";
 import { socialIconSelect } from "../utils/socialIconSelect";
 import { motion } from "framer-motion";
-import { fadeIn } from "../constants/variants";
+import { slideUp, cardReveal } from "../constants/motionSystem";
 
 const MyInfo = () => {
   const Menu = useContext(MenuProvider);
@@ -20,20 +20,21 @@ const MyInfo = () => {
   return (
     <div className="sticky top-0 bg-primaryColor dark:bg-black lg:rounded-xl flex lg:flex-col items-center justify-between gap-8 p-5 md:p-8 xl:px-7 xl:py-10 h-fit w-full lg:w-fit">
       <motion.div
-        variants={fadeIn("up", 0.3)}
+        variants={slideUp(0)}
         initial="hidden"
         animate="show"
         className="w-16 h-16 lg:w-52 lg:h-52 rounded-xl group overflow-hidden lg:-mt-36 shrink-0"
       >
         <img
           src={profileImage}
+          alt="Essifie Prince Bondzie - Frontend Developer"
           className=" w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out "
         />
       </motion.div>
       {/* my details */}
       <div className="flex flex-col gap-2">
         <motion.h1
-          variants={fadeIn("up", 0.35)}
+          variants={slideUp(0.05)}
           initial="hidden"
           animate="show"
           className=" font-semibold text-textColor text-base xl:text-xl text-center dark:text-white"
@@ -41,7 +42,7 @@ const MyInfo = () => {
           Essifie Prince Bondzie
         </motion.h1>
         <motion.h3
-          variants={fadeIn("up", 0.35)}
+          variants={slideUp(0.1)}
           initial="hidden"
           animate="show"
           className="text-xs xl:text-sm text-center dark:text-white"
@@ -53,9 +54,10 @@ const MyInfo = () => {
         <div className="lg:flex gap-3 justify-center hidden">
           {socialLinks.map((social, index) => (
             <motion.div
-              className={`bg-secondaryColor dark:bg-darkBg p-2 text-[${social.color}] text-xl rounded-md cursor-pointer hover:-translate-y-1 transition-all duration-400 ease-in-out`}
+              className="bg-secondaryColor dark:bg-darkBg p-2 text-xl rounded-md cursor-pointer hover:-translate-y-1 transition-all duration-400 ease-in-out"
+              style={{ color: social.color }}
               key={index}
-              variants={fadeIn("left", 0.15, index)}
+              variants={cardReveal(index)}
               initial="hidden"
               animate="show"
             >
@@ -76,7 +78,7 @@ const MyInfo = () => {
 
       <div className="hidden bg-secondaryColor dark:bg-darkBg p-5 rounded-lg lg:flex flex-col gap-5 min-w-full">
         <motion.div
-          variants={fadeIn("down", 0.3)}
+          variants={slideUp(0.15)}
           initial="hidden"
           animate="show"
           className="flex gap-3 border-b-2 border-b-[#EBEDED] pb-3"
@@ -87,12 +89,12 @@ const MyInfo = () => {
           <div>
             <span className=" font-thin text-xs  dark:text-white">Phone</span>
             <h3 className="dark:text-white text-textColor  text-sm">
-              +233 24 123 4567
+              +233 20 244 9478
             </h3>
           </div>
         </motion.div>
         <motion.div
-          variants={fadeIn("down", 0.35)}
+          variants={slideUp(0.2)}
           initial="hidden"
           animate="show"
           className="flex gap-3 border-b-2 border-b-[#EBEDED] pb-3"
@@ -108,7 +110,7 @@ const MyInfo = () => {
           </div>
         </motion.div>
         <motion.div
-          variants={fadeIn("down", 0.4)}
+          variants={slideUp(0.25)}
           initial="hidden"
           animate="show"
           className="flex gap-3 border-b-2 border-b-[#EBEDED] pb-3"
@@ -126,7 +128,7 @@ const MyInfo = () => {
           </div>
         </motion.div>
         <motion.div
-          variants={fadeIn("down", 0.45)}
+          variants={slideUp(0.3)}
           initial="hidden"
           animate="show"
           className="flex gap-3"
@@ -145,14 +147,14 @@ const MyInfo = () => {
         </motion.div>
       </div>
 
-      <motion.div variants={fadeIn("up", 0.45)} initial="hidden" animate="show">
+      <motion.div variants={slideUp(0.35)} initial="hidden" animate="show">
         <Link
           to={
             "https://docs.google.com/document/d/1eVbz_e1tzxN75Z7sawFBbMc7Ma_zfAH-iX94tem4ltU/export?format=pdf"
           }
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden bg-[#1B74E4] lg:flex items-center gap-2 text-primaryColor rounded-md px-5 py-2 text-sm"
+          className="hidden bg-brand lg:flex items-center gap-2 text-primaryColor rounded-md px-5 py-2 text-sm"
         >
           <MdOutlineFileDownload />
           <span>Download CV</span>

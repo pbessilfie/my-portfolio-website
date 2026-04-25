@@ -1,14 +1,16 @@
 import MyInfo from "../Components/MyInfo";
 import Navbar from "../Components/Navbar";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { useContext, useEffect } from "react";
 import { FaMoon, FaSun } from "react-icons/fa6";
 import { ThemeContext } from "../context/ThemeContext";
 import BGImgSrc from "../assets/bgImg2.jpeg";
 import SideMenu from "./SideMenu";
+import { AnimatePresence } from "framer-motion";
 const Layout = () => {
   const Theme = useContext(ThemeContext);
   const { darkTheme, setDarkTheme } = Theme;
+  const location = useLocation();
 
   const toggleDarkMode = () => {
     setDarkTheme((prev) => !prev);
@@ -49,7 +51,9 @@ const Layout = () => {
         </div>
 
         <div className="lg:h-fit lg:w-[600px] xl:w-[700px] w-full flex-1 flex overflow-y-auto">
-          <Outlet />
+          <AnimatePresence mode="wait">
+            <Outlet key={location.pathname} />
+          </AnimatePresence>
         </div>
       </div>
     </main>

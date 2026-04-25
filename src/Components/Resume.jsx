@@ -7,7 +7,14 @@ import { useState } from "react";
 import Education from "./Education";
 import Experience from "./Experience";
 import { motion } from "framer-motion";
-import { fadeIn } from "../constants/variants";
+import {
+  slideLeft,
+  slideUp,
+  staggerContainer,
+  staggerItem,
+  stagger,
+  pageTransition,
+} from "../constants/motionSystem";
 
 const Resume = () => {
   const [activeLink, setactiveLink] = useState("Education");
@@ -42,11 +49,18 @@ const Resume = () => {
     },
   ];
 
+  const year = new Date().getFullYear();
+
   return (
-    <div className="w-full flex-1 flex flex-col">
+    <motion.div
+      className="w-full flex-1 flex flex-col"
+      variants={pageTransition}
+      initial="hidden"
+      animate="show"
+    >
       <div className=" bg-primaryColor dark:bg-black lg:rounded-t-xl p-5 md:p-8 flex-1">
         <motion.div
-          variants={fadeIn("left", 0.25)}
+          variants={slideLeft(0)}
           initial="hidden"
           animate="show"
           className="flex items-center gap-4 mb-7"
@@ -54,7 +68,7 @@ const Resume = () => {
           <h1 className=" text-textColor dark:text-white text-2xl font-bold">
             Resume
           </h1>
-          <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
+          <hr className=" border-brand border-2 w-32 rounded-full" />
         </motion.div>
 
         <div>
@@ -86,9 +100,9 @@ const Resume = () => {
         <div className="flex flex-col md:flex-row gap-3 mb-5">
           <div className=" w-full md:w-1/2">
             <motion.h2
-              variants={fadeIn("up", 0.25)}
+              variants={slideUp(0)}
               initial="hidden"
-              whileInView={"show"}
+              whileInView="show"
               viewport={{ once: true }}
               className=" text-base font-bold text-textColor dark:text-white mb-3 "
             >
@@ -98,7 +112,7 @@ const Resume = () => {
             <ul className=" flex flex-col gap-4">
               {workingSkills.map((skill, index) => (
                 <motion.div
-                  variants={fadeIn("left", 0.25, index)}
+                  variants={slideLeft(index * stagger.fast)}
                   initial="hidden"
                   animate="show"
                   key={index}
@@ -122,39 +136,42 @@ const Resume = () => {
           </div>
           <div className="w-full md:w-1/2">
             <motion.h2
-              variants={fadeIn("up", 0.25)}
+              variants={slideUp(0)}
               initial="hidden"
-              whileInView={"show"}
+              whileInView="show"
               viewport={{ once: true }}
               className=" text-base font-bold text-textColor dark:text-white mb-3 "
             >
               Knowledge
             </motion.h2>
-            <ul className="flex flex-wrap gap-3">
+            <motion.ul
+              className="flex flex-wrap gap-3"
+              variants={staggerContainer(stagger.fast)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
               {Knowledge.map((item, index) => (
                 <motion.li
                   key={index}
                   className=" bg-secondaryColor3 dark:bg-darkBg dark:text-white text-textColor p-2 rounded-lg text-[12px]"
-                  variants={fadeIn("up", 0.07, index)}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
+                  variants={staggerItem}
                 >
                   {item}{" "}
                 </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </div>
         </div>
 
         <div className="flex justify-center text-[9px] font-thin dark:text-white text-gray-600 text-center ">
           <span className="flex items-center gap-1">
-            <FaRegCopyright className="" /> 2024 All Rights Reserved by
-            evolution architects
+            <FaRegCopyright /> {year} All Rights Reserved by evolution
+            architects
           </span>
         </div>
       </footer>
-    </div>
+    </motion.div>
   );
 };
 

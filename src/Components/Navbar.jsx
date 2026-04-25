@@ -3,26 +3,22 @@ import { FaRegFileAlt, FaRegFileCode } from "react-icons/fa";
 import { LuContact } from "react-icons/lu";
 import { PNL } from "../constants";
 import { NavLink } from "react-router";
-import {motion} from 'framer-motion'
-import { fadeIn } from "../constants/variants";
-
+import { motion } from "framer-motion";
+import { slideUp, stagger } from "../constants/motionSystem";
 
 const Navbar = () => {
-
   const PLIcon = (link) => {
     let sl = link.name;
     if (sl) {
       switch (sl) {
         case "Resume":
-          return <FaRegFileAlt  />;
+          return <FaRegFileAlt />;
         case "Works":
-          return <FaRegFileCode  />;
-
+          return <FaRegFileCode />;
         case "Contact":
-          return <LuContact  />;
-
+          return <LuContact />;
         default:
-          return <CiUser  />;
+          return <CiUser />;
       }
     }
     return sl;
@@ -30,23 +26,20 @@ const Navbar = () => {
 
   return (
     <ul className="bg-primaryColor dark:bg-black flex justify-evenly gap-4 xl:flex-col p-5 lg:rounded-xl w-full lg:w-fit h-fit self-end xl:self-start z-30 ">
-     
-      {PNL.map((link,index) => (
+      {PNL.map((link, index) => (
         <motion.li
-          variants={fadeIn("up", 0.25, index)}
-                          initial="hidden"
-                          animate="show"
-                          viewport={{ once: true }}
+          variants={slideUp(index * stagger.base)}
+          initial="hidden"
+          animate="show"
           key={link.name}
-          className="transition-all duration-400 ease-in-out cursor-pointer w-1/5 scale-75 lg:scale-95 lg:w-full
-"
+          className="transition-all duration-400 ease-in-out cursor-pointer w-1/5 scale-75 lg:scale-95 lg:w-full"
         >
           <NavLink
             to={link.path}
             className={({ isActive }) =>
               isActive
-                ? "bg-[#1B74E4] text-secondaryColor p-2 flex flex-col items-center rounded-lg text-xs text-center hover:bg-[#1B74E4] hover:text-secondaryColor  "
-                : "bg-secondaryColor dark:bg-darkBg dark:text-white text-textColor p-2 flex flex-col items-center rounded-lg text-xs text-center hover:bg-[#1B74E4] hover:text-secondaryColor  "
+                ? "bg-brand text-secondaryColor p-2 flex flex-col items-center rounded-lg text-xs text-center hover:bg-brand hover:text-secondaryColor  "
+                : "bg-secondaryColor dark:bg-darkBg dark:text-white text-textColor p-2 flex flex-col items-center rounded-lg text-xs text-center hover:bg-brand hover:text-secondaryColor  "
             }
           >
             <div className="text-2xl mb-2">{PLIcon(link)}</div>{" "}
@@ -59,4 +52,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

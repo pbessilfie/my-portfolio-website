@@ -1,5 +1,5 @@
 import { educationData } from "../constants/educationData";
-import { fadeIn } from "../constants/variants";
+import { cardReveal, cardHover } from "../constants/motionSystem";
 import { getIndex } from "../utils/getIndex";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -11,13 +11,13 @@ const Education = () => {
         <AnimatePresence>
           {educationData.map((education, index) => (
             <motion.div
-              variants={fadeIn("up", 0.2, index)}
-              initial={"hidden"}
+              variants={cardReveal(index)}
+              initial="hidden"
               animate="show"
-              viewport={{ once: true }}
-              exit={"hidden"}
+              exit="hidden"
               key={index}
-              className={`text-sm flex flex-col gap-2 p-4  rounded-xl dark:bg-darkBg ${
+              {...cardHover}
+              className={`text-sm flex flex-col gap-2 p-4 rounded-xl dark:bg-darkBg ${
                 indeces.includes(index)
                   ? "bg-secondaryColor2"
                   : "bg-secondaryColor4"

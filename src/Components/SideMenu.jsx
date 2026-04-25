@@ -46,6 +46,7 @@ const SideMenu = () => {
           <div className="w-16 h-16 rounded-full group overflow-hidden shrink-0">
             <img
               src={profileImage}
+              alt="Essifie Prince Bondzie"
               className=" w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out "
             />
           </div>
@@ -64,7 +65,8 @@ const SideMenu = () => {
                 to={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`bg-primaryColor dark:bg-black p-2 text-[${social.color}] text-xl rounded-md cursor-pointer hover:-translate-y-1 transition-all duration-400 ease-in-out`}
+                className="bg-primaryColor dark:bg-black p-2 text-xl rounded-md cursor-pointer hover:-translate-y-1 transition-all duration-400 ease-in-out"
+                style={{ color: social.color }}
               >
                 {socialIconSelect(
                   social.social,
@@ -82,7 +84,7 @@ const SideMenu = () => {
               <LiaMobileAltSolid className="text-xl text-[#845050]" />
               <div>
                 <span className=" font-thin text-xs ">Phone</span>
-                <h3 className=" text-textColor dark:text-white  text-sm">+233 24 123 4567</h3>
+                <h3 className=" text-textColor dark:text-white  text-sm">+233 20 244 9478</h3>
               </div>
             </div>
 
@@ -120,7 +122,7 @@ const SideMenu = () => {
           }
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#1B74E4] flex items-center justify-center gap-2 text-primaryColor rounded-md px-5 py-2 text-sm"
+          className="bg-brand flex items-center justify-center gap-2 text-primaryColor rounded-md px-5 py-2 text-sm"
         >
           <MdOutlineFileDownload />
           <span>Download CV</span>

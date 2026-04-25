@@ -1,6 +1,6 @@
 import { CgIfDesign } from "react-icons/cg";
 import { FaCode, FaRegCopyright } from "react-icons/fa";
-import { MdOutlineDeveloperMode, MdOutlineWeb } from "react-icons/md";
+import { MdOutlineApi, MdOutlineSpeed } from "react-icons/md";
 import { whatIDoData } from "../constants/whatIDoData";
 import nestSoftLogoSrc from "../assets/nestsoft-logo.png";
 import xcuxionLogoSrc from "../assets/xcuxion-logo-removebg-preview 1.png";
@@ -8,7 +8,7 @@ import mavritechLogoSrc from "../assets/Logo 1.png";
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { AnimatePresence, motion } from "framer-motion";
-import { fadeIn } from "../constants/variants";
+import { slideLeft, slideUp, cardReveal, cardHover, pageTransition } from "../constants/motionSystem";
 
 const About = () => {
   const Theme = useContext(ThemeContext);
@@ -17,10 +17,10 @@ const About = () => {
     switch (title) {
       case "UI/UX Design":
         return <CgIfDesign className="text-[#EA6985]" />;
-      case "Mobile App development":
-        return <MdOutlineDeveloperMode className="text-[#D89D26]" />;
-      case "Web Design":
-        return <MdOutlineWeb className="text-[#BE77D8]" />;
+      case "API Integration":
+        return <MdOutlineApi className="text-[#D89D26]" />;
+      case "Performance Optimization":
+        return <MdOutlineSpeed className="text-[#BE77D8]" />;
       default:
         return <FaCode className="text-[#BE77D8]" />;
     }
@@ -33,10 +33,15 @@ const About = () => {
   ];
   const getYear = new Date().getFullYear();
   return (
-    <div className="w-full dark:text-white overflow-y-auto flex-1">
+    <motion.div
+      className="w-full dark:text-white overflow-y-auto flex-1"
+      variants={pageTransition}
+      initial="hidden"
+      animate="show"
+    >
       <div className=" bg-primaryColor dark:bg-black lg:rounded-t-xl p-5 md:p-10 ">
         <motion.div
-          variants={fadeIn("left", 0.25)}
+          variants={slideLeft(0)}
           initial="hidden"
           animate="show"
           className="flex items-center gap-4 mb-7"
@@ -44,40 +49,39 @@ const About = () => {
           <h1 className=" text-textColor dark:text-white text-2xl font-bold">
             About
           </h1>
-          <hr className=" border-[#1B74E4]  border-2 w-32 rounded-full" />
+          <hr className=" border-brand border-2 w-32 rounded-full" />
         </motion.div>
         <div className="mb-5 ">
           <motion.p
-            variants={fadeIn("up", 0.25)}
+            variants={slideUp(0.1)}
             initial="hidden"
             animate="show"
             className=" text-sm mb-4"
           >
-            I’m a Frontend Developer based in Ghana, specializing in building
-            and optimizing user-focused, responsive websites and applications.
-            With a strong background in HTML, CSS, and JavaScript (including
-            modern library like React and framework like Next), I combine clean,
-            efficient code with an eye for design to create seamless digital
-            experiences.
+            I'm a Frontend Engineer and co-founder based in Accra, Ghana, with
+            4+ years building production-grade web applications. I specialize in
+            React.js and Next.js, turning Figma designs into pixel-perfect,
+            responsive interfaces while integrating complex REST APIs and
+            third-party services to bring products to life.
           </motion.p>
           <motion.p
-            variants={fadeIn("up", 0.3)}
+            variants={slideUp(0.15)}
             initial="hidden"
             animate="show"
             className=" text-sm "
           >
-            My goal is to bring your vision to life in the most intuitive and
-            engaging way possible. Over the years, I’ve worked with diverse
-            teams and notable brands, transforming complex requirements into
-            elegant solutions. I’m passionate about web performance,
-            accessibility, and creating interfaces that not only look great but
-            also deliver outstanding user experiences.
+            I've shipped features across diverse domains — from real-time
+            booking platforms and multi-currency UIs at Traaple, to AI-powered
+            products at EngineX, and a customer management platform at Ahoma. I
+            care deeply about performance, accessibility, and scalable
+            architecture, and I thrive in cross-functional teams where design,
+            engineering, and product thinking intersect.
           </motion.p>
         </div>
 
         <div className=" mb-2">
           <motion.h2
-            variants={fadeIn("up", 0.35,)}
+            variants={slideUp(0.05)}
             initial="hidden"
             animate="show"
             className=" font-bold text-base mb-7"
@@ -86,14 +90,14 @@ const About = () => {
           </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <AnimatePresence>
-              {" "}
               {whatIDoData.map((data, index) => (
                 <motion.div
-                  variants={fadeIn("up", 0.25, index)}
+                  variants={cardReveal(index)}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true, amount: 0.25 }}
                   key={index}
+                  {...cardHover}
                   className={`${data.bgColor} dark:bg-darkBg p-6 rounded-lg space-y-4`}
                 >
                   <div className={`flex gap-3 items-center text-3xl `}>
@@ -114,7 +118,7 @@ const About = () => {
 
       <footer className=" bg-secondaryColor  dark:bg-black dark:text-white dark:border-t dark:border-slate-600 p-10 lg:rounded-b-xl">
         <motion.h3
-          variants={fadeIn("up", 0.25)}
+          variants={slideUp(0)}
           initial="hidden"
           viewport={{ once: true }}
           whileInView="show"
@@ -125,7 +129,7 @@ const About = () => {
         <div className="flex items-center justify-evenly mb-10">
           {clients.map((client, index) => (
             <motion.img
-              variants={fadeIn("up", 0.25, index)}
+              variants={cardReveal(index)}
               initial="hidden"
               viewport={{ once: true }}
               whileInView="show"
@@ -140,12 +144,12 @@ const About = () => {
 
         <div className="flex justify-center text-[9px] font-thin dark:text-white text-gray-600 text-center ">
           <span className="flex items-center gap-1">
-            <FaRegCopyright className="" /> {getYear} All Rights Reserved by
-            evolution architects
+            <FaRegCopyright /> {getYear} All Rights Reserved by evolution
+            architects
           </span>
         </div>
       </footer>
-    </div>
+    </motion.div>
   );
 };
 
