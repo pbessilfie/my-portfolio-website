@@ -29,6 +29,7 @@ const MyInfo = () => {
           src={profileImage}
           alt="Essifie Prince Bondzie - Frontend Developer"
           className=" w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out "
+          loading="lazy"
         />
       </motion.div>
       {/* my details */}
@@ -49,6 +50,21 @@ const MyInfo = () => {
         >
           Frontend Developer
         </motion.h3>
+
+        <motion.div
+          variants={slideUp(0.15)}
+          initial="hidden"
+          animate="show"
+          className="flex items-center justify-center gap-1.5 mt-1"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span className="text-[10px] text-green-600 dark:text-green-400 font-medium">
+            Available for opportunities
+          </span>
+        </motion.div>
 
         {/* social links */}
         <div className="lg:flex gap-3 justify-center hidden">
@@ -123,7 +139,7 @@ const MyInfo = () => {
               Location
             </span>
             <h3 className="dark:text-white text-textColor  text-sm">
-              Kwabenya Ghana
+              East Airport, Accra GH
             </h3>
           </div>
         </motion.div>

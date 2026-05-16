@@ -48,6 +48,7 @@ const SideMenu = () => {
               src={profileImage}
               alt="Essifie Prince Bondzie"
               className=" w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out "
+              loading="lazy"
             />
           </div>
           <h1 className=" font-semibold text-textColor dark:text-white text-base mt-5">
@@ -103,7 +104,7 @@ const SideMenu = () => {
               <MdLocationOn className="text-xl text-red-500" />
               <div>
                 <span className=" font-thin text-xs ">Location</span>
-                <h3 className=" text-textColor dark:text-white  text-sm">Kwabenya Ghana</h3>
+                <h3 className=" text-textColor dark:text-white  text-sm">East Airport, Accra GH</h3>
               </div>
             </div>
             <div className="flex items-center px-3 gap-3">
