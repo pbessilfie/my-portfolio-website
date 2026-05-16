@@ -3,8 +3,10 @@ import { FaRegCopyright } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import { motion } from "framer-motion";
 import { slideLeft, slideUp, pageTransition } from "../constants/motionSystem";
+import usePageTitle from "../utils/usePageTitle";
 
 const Contact = () => {
+  usePageTitle("Contact");
   const [isNameFocused, setIsNameFocused] = useState(false);
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isMessageFocused, setIsMessageFocused] = useState(false);

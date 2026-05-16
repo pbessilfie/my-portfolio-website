@@ -6,8 +6,10 @@ import { getIndex } from "../utils/getIndex";
 import { Link } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { slideLeft, slideUp, cardReveal, pageTransition } from "../constants/motionSystem";
+import usePageTitle from "../utils/usePageTitle";
 
 const Works = () => {
+  usePageTitle("Works");
   const [works, setWorks] = useState(projects);
   const [activeLink, setActiveLink] = useState("All");
 
@@ -105,14 +107,31 @@ const Works = () => {
                       src={project.thumbnail}
                       alt={project.projectTitle}
                       className=" h-full w-full object-cover group-hover:scale-110 transition-all ease-in-out duration-500"
+                      loading="lazy"
                     />
                   </div>
-                  <span className=" text-[10px] font-extralight text-gray-500 dark:text-gray-400 self-start">
-                    {project.category}
-                  </span>
-                  <p className=" text-sm font-semibold self-start">
-                    {project.projectTitle}
-                  </p>
+                  <div className="flex items-center justify-between w-full">
+                    <p className=" text-sm font-semibold">
+                      {project.projectTitle}
+                    </p>
+                    {project.year && (
+                      <span className="text-[9px] text-gray-400 dark:text-gray-500 shrink-0">
+                        {project.year}
+                      </span>
+                    )}
+                  </div>
+                  {project.techStack?.length > 0 && (
+                    <div className="flex flex-wrap gap-1 self-start">
+                      {project.techStack.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="text-[9px] bg-white/70 dark:bg-white/10 dark:text-gray-300 text-gray-600 px-1.5 py-0.5 rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </Link>
               </motion.div>
             ))}

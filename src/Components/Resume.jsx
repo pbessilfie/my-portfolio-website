@@ -7,6 +7,7 @@ import { useState } from "react";
 import Education from "./Education";
 import Experience from "./Experience";
 import { motion } from "framer-motion";
+import usePageTitle from "../utils/usePageTitle";
 import {
   slideLeft,
   slideUp,
@@ -17,6 +18,7 @@ import {
 } from "../constants/motionSystem";
 
 const Resume = () => {
+  usePageTitle("Resume");
   const [activeLink, setactiveLink] = useState("Education");
   const resumeNavItems = [
     {

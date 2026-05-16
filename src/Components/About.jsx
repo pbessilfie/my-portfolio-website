@@ -5,12 +5,34 @@ import { whatIDoData } from "../constants/whatIDoData";
 import nestSoftLogoSrc from "../assets/nestsoft-logo.png";
 import xcuxionLogoSrc from "../assets/xcuxion-logo-removebg-preview 1.png";
 import mavritechLogoSrc from "../assets/Logo 1.png";
-import { useContext } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import { ThemeContext } from "../context/ThemeContext";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { slideLeft, slideUp, cardReveal, cardHover, pageTransition } from "../constants/motionSystem";
+import usePageTitle from "../utils/usePageTitle";
+
+const CountUp = ({ to, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+    let current = 0;
+    const interval = 1200 / to;
+    const timer = setInterval(() => {
+      current += 1;
+      setCount(current);
+      if (current >= to) clearInterval(timer);
+    }, interval);
+    return () => clearInterval(timer);
+  }, [isInView, to]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
 
 const About = () => {
+  usePageTitle("About");
   const Theme = useContext(ThemeContext);
   const { darkTheme } = Theme;
   const iconSelect = (title) => {
@@ -78,6 +100,32 @@ const About = () => {
             engineering, and product thinking intersect.
           </motion.p>
         </div>
+
+        <motion.div
+          variants={slideUp(0.2)}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 mt-2"
+        >
+          {[
+            { value: 4, suffix: "+", label: "Years Experience" },
+            { value: 6, suffix: "",  label: "Companies" },
+            { value: 15, suffix: "+", label: "Projects Built" },
+            { value: 3, suffix: "",  label: "Active Ventures" },
+          ].map((stat, i) => (
+            <div
+              key={i}
+              className="bg-secondaryColor dark:bg-darkBg rounded-xl p-4 flex flex-col items-center gap-1"
+            >
+              <span className="text-2xl font-bold text-brand">
+                <CountUp to={stat.value} suffix={stat.suffix} />
+              </span>
+              <span className="text-[10px] text-gray-500 dark:text-gray-400 text-center leading-tight">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
 
         <div className=" mb-2">
           <motion.h2
