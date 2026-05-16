@@ -7,6 +7,7 @@ import About from "./Components/About.jsx";
 import Resume from "./Components/Resume.jsx";
 import Works from "./Components/Works.jsx";
 import Contact from "./Components/Contact.jsx";
+import NotFound from "./Components/NotFound.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="works" element={<Works />} />
           <Route path="contact" element={<Contact />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
