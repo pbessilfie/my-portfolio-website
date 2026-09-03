@@ -10,7 +10,7 @@ export default function Home() {
 
     const script = document.createElement('script');
     script.type = 'module';
-    script.src = '/assets/index-BV5kaT2M.js?v=917c89e9';
+    script.src = '/assets/index-BV5kaT2M.js?v=b593d72e';
     script.crossOrigin = '';
     script.onerror = () => {
       window.__lamineCloneLoaded = false;
