@@ -1,0 +1,27 @@
+# dependencies
+node_modules
+
+# next.js build output
+.next
+out
+
+# environment files
+.env
+.env*.local
+
+# macOS
+.DS_Store
+
+# local agent/editor settings
+.claude/settings.local.json
+
+# next.js generated AI agent files
+AGENTS.md
+CLAUDE.md
+
+# backup files
+*.bak*
+
+# logs
+npm-debug.log*
+.vercel
